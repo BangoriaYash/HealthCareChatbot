@@ -76,4 +76,6 @@ def custom_nlp_response(user_input):
 
 if __name__ == "__main__":
     from waitress import serve
-    serve(app, host="0.0.0.0", port=5050)
+    port = int(os.environ.get("PORT", 5100))  # fallback to 5100 if not set
+    serve(app, host="0.0.0.0", port=port)
+
